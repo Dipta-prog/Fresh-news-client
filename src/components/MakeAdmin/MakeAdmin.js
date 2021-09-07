@@ -20,7 +20,7 @@ const MakeAdmin = () => {
         const tempInfo = { ...newAdmin };
         console.log(tempInfo);
 
-        const url = 'https://arcane-savannah-57391.herokuapp.com/addAdmins';
+        const url = 'http://localhost:5092/addAdmins';
         fetch(url, {
             method: 'POST',
             headers: {

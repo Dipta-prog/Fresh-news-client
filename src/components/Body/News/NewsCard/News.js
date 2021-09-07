@@ -2,8 +2,8 @@ import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { UserContext } from '../../../App';
-import NewsCard from './NewsCard/NewsCard';
+import { UserContext } from '../../../../App';
+import NewsCard from './NewsCard';
 export const fakeNews = [
     { _id: 0, img: "https://www.thesundaily.my/binrepository/648x432/0c0/0d0/none/11808/KJFE/test-kit1_1880007_20210906164736.jpg", title: "News-1 Title", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas mollitia nostrum ex magni eligendi officia odit perspiciatis quod id aliquam.", author: "A", category: "action" },
     { _id: 1, img: "https://www.thesundaily.my/binrepository/648x432/0c0/0d0/none/11808/KJFE/test-kit1_1880007_20210906164736.jpg", title: "News-2 Title", description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas mollitia nostrum ex magni eligendi officia odit perspiciatis quod id aliquam.", author: "B", category: "action" },
@@ -17,32 +17,43 @@ const News = () => {
 
     useEffect(() => {
         // original
-        console.log("category -----------", category)
-        if (loggedInUser.category==='All') {
-            fetch('http://localhost:5092/newsList')
+        console.log("category use effect called -----------", category)
+        // if (loggedInUser.category === 'All' || loggedInUser.category === undefined) {
+        //     fetch('http://localhost:5092/newsList')
+        //         .then(res => res.json())
+        //         .then(data => setNewsList(data))
+        // }
+        // else {
+        //     setNewsList([])
+        //     fetch(`http://localhost:5092/newsList/${loggedInUser.category}`)
+        //         .then(res => res.json())
+        //         .then(data => setNewsList([data]))
+        // }
+
+
+        setNewsList([])
+        fetch(`http://localhost:5092/newsList/${loggedInUser.category}`)
             .then(res => res.json())
             .then(data => setNewsList(data))
-        }
-        else{
-            fetch(`http://localhost:5092/newsList/${loggedInUser.category}`)
-            .then(res => res.json())
-            .then(data => setNewsList([data]))
-        }
-        
 
-        // fetch by content type dynamic string example
-        // fetch(`https://arcane-savannah-57391.herokuapp.com/product/${id}`) // category
+
 
         // setNewsList(fakeNews)
-    }, [loggedInUser.category])
+    }, [])
 
-    console.log("from server data front end",newsList);
+    console.log("from server data front end", newsList);
 
     const handleChange = (e) => {
         // console.log(document.getElementById(id).value);
         console.log(e.target.value);
         setCategory(e.target.value)
         setLoggedInUser({ ...loggedInUser, category: e.target.value })
+
+
+        setNewsList([])
+        fetch(`http://localhost:5092/newsList/${e.target.value}`)
+            .then(res => res.json())
+            .then(data => setNewsList([data]))
     }
 
     console.log("This is from context api", loggedInUser.category)

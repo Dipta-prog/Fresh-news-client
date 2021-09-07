@@ -1,13 +1,16 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
-import { fakeNews } from '../Body/News/News';
-import FooterFN from '../Home/FooterFN/FooterFN';
+import { UserContext } from '../../App';
+import { fakeNews } from '../Body/News/NewsCard/News';
+import FooterFN from '../Shared/FooterFN/FooterFN';
 import Navbar from '../Shared/Navbar/Navbar';
 
 
 const NewsDetails = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { _id } = useParams();
     const [newsDetails, setNewsDetails] = useState({
         _id: null,

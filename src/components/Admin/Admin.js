@@ -7,7 +7,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge, faListOl, faPlusSquare, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
-import AllOrders from '../AllOrders/AllOrders';
+// import AllOrders from '../AllOrders/AllOrders';
 
 const Admin = () => {
     const [manageServices, setManageServices] = useState(false);

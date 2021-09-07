@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { fakeNews } from '../../Body/News/News';
+import { fakeNews } from '../../Body/News/NewsCard/News';
 
 const SlidingBanner = () => {
     const [highlights, setHighlights] = useState([])

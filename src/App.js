@@ -9,13 +9,14 @@ import Login from './components/Login/Login';
 import { createContext } from 'react';
 import { useState } from 'react';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Orders from './components/Orders/Orders';
+// import Orders from './components/Orders/Orders';
 import Home from './components/Home/Home/Home';
 import DashBoard from './components/DashBoard/DashBoard';
-import Services from './components/Home/Services/Services';
-import Navbar from './components/Shared/Navbar/Navbar';
+// import Services from './components/Home/Services/Services';
+// import Navbar from './components/Shared/Navbar/Navbar';
 import NewsDetails from './components/NewsDetails/NewsDetails';
 import { useEffect } from 'react';
+import AllNews from './components/Body/News/AllNews/AllNews';
 export const UserContext = createContext();
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
     category: 'All',
   });
   const [requireLogin, setRequireLogin]= useState(false)
+  console.log("Home:",loggedInUser.category)
 
 useEffect(() => {
   if ((loggedInUser.category==="Sports") || (loggedInUser.category==="International")) {
@@ -53,8 +55,7 @@ useEffect(() => {
             <Login></Login>
           </Route>
           <Route path="/services">
-            <Navbar></Navbar>
-            <Services></Services>
+            <AllNews/>
           </Route>
           {/*  */}
 
@@ -66,13 +67,10 @@ useEffect(() => {
           </PrivateRoute>}
 
 
-          <PrivateRoute path="/orders">
-            <Navbar></Navbar>
-            <Orders></Orders>
-          </PrivateRoute>
-          <PrivateRoute path="/dashboard/:id">
+          
+          {/* <PrivateRoute path="/dashboard/:id">
             <DashBoard></DashBoard>
-          </PrivateRoute>
+          </PrivateRoute> */}
           <PrivateRoute path="/dashboard">
             <DashBoard></DashBoard>
           </PrivateRoute>

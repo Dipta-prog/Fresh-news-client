@@ -5,12 +5,13 @@ import { useContext } from 'react';
 import { UserContext } from '../../App';
 import './DashBoard.css';
 import Navbar from '../Shared/Navbar/Navbar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faList, faEdit } from '@fortawesome/free-solid-svg-icons';
-import Orders from '../Orders/Orders';
-import BuyService from '../BuyService/BuyService';
-import WriteReview from '../WriteReview/WriteReview';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faShoppingCart, faList, faEdit } from '@fortawesome/free-solid-svg-icons';
+// import Orders from '../Orders/Orders';
+// import BuyService from '../BuyService/BuyService';
+// import WriteReview from '../WriteReview/WriteReview';
 import Admin from '../Admin/Admin';
+import FooterFN from '../Shared/FooterFN/FooterFN';
 
 const DashBoard = () => {
     const [dataVerifyingComplete, setDataVerifyingComplete] = useState(false);
@@ -118,7 +119,9 @@ const DashBoard = () => {
 
                     </div>
                  */}
-                 <h1 className="text-center">User Logged in</h1>
+                    <Navbar />
+                    <h1 className="text-center py-5 my-5">User Logged in</h1>
+                    <FooterFN />
                 </div>
                 }
 

@@ -1,18 +1,18 @@
 import React from 'react';
 import './Home.css'
 import headerImg from '../../../images/Header-banner-fresh-news.jpg'
-import Services from '../Services/Services';
-import Header from '../TopNewsList/TopNewsList';
-import FeaturedService from '../FeaturedService/FeaturedService';
-import Reviews from '../Reviews/Reviews';
-import BusinessInfo from '../BusinessInfo/BusinessInfo';
-import Footer from '../../Shared/Footer/Footer';
-import SlideBusinessInfo from '../../SlideBusinessInfo/SlideBusinessInfo';
+// import Services from '../Services/Services';
+// import Header from '../TopNewsList/TopNewsList';
+// import FeaturedService from '../FeaturedService/FeaturedService';
+// import Reviews from '../Reviews/Reviews';
+// import BusinessInfo from '../BusinessInfo/BusinessInfo';
+// import Footer from '../../Shared/Footer/Footer';
+// import SlideBusinessInfo from '../../SlideBusinessInfo/SlideBusinessInfo';
 import Navbar from '../../Shared/Navbar/Navbar';
 import TopNewsList from '../TopNewsList/TopNewsList';
 import SlidingBanner from '../SlidingBanner/SlidingBanner';
-import News from '../../Body/News/News';
-import FooterFN from '../FooterFN/FooterFN';
+import News from '../../Body/News/NewsCard/News';
+import FooterFN from '../../Shared/FooterFN/FooterFN';
 
 const Home = () => {
 
@@ -28,7 +28,7 @@ const Home = () => {
                         <SlidingBanner />
                     </div>
                     <div className="py-1">
-                        <News/>
+                        <News />
                     </div>
                 </div>
                 <div className="col-md-4">
@@ -36,7 +36,7 @@ const Home = () => {
                     <TopNewsList />
                 </div>
                 <div className="col-md-12">
-                    <FooterFN/>
+                    <FooterFN />
                 </div>
             </div>
 

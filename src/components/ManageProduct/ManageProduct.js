@@ -5,13 +5,13 @@ import deleteBtn from '../../all_Images/icons/Group 33150.png';
 const ManageProduct = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://arcane-savannah-57391.herokuapp.com/products')
+        fetch('http://localhost:5092/newsList')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
 
     const handleDeleteProduct = (productIndex, id) => {
-        fetch(`https://arcane-savannah-57391.herokuapp.com/deleteProduct/${id}`, {
+        fetch(`http://localhost:5092/deleteNews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

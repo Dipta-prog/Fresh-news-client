@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import headerImg from '../../../images/Header-banner-fresh-news.jpg'
-import { fakeNews } from '../../Body/News/News';
+import { fakeNews } from '../../Body/News/NewsCard/News';
 // import HeaderMain from '../HeaderMain/HeaderMain';
 import Navbar from '../../Shared/Navbar/Navbar'
 import TopNews from '../TopNews/TopNews';
@@ -12,15 +12,15 @@ import TopNews from '../TopNews/TopNews';
 const TopNewsList = () => {
     const [topNewsList, setTopNewsList] = useState([])
     useEffect(() => {
-        fetch('topnews')
+        fetch('http://localhost:5092/topNewsList')
             .then(res => res.json())
-            .then(data => data)
+            .then(data => setTopNewsList(data))
     }, [])
     return (
         <div>
             {/* fetch news of each category take first one, make array using those, map it */}
             {
-                fakeNews.map(topNews => <TopNews topNews={topNews}/>)
+                topNewsList.map(topNews => <TopNews topNews={topNews}/>)
             }
             {/* <TopNews /> */}
         </div>
