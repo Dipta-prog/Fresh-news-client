@@ -1,0 +1,35 @@
+.footer-area {
+    background-size: cover;
+}
+
+.footer-area li {
+    padding-bottom: 10px;
+}
+
+.social-media .icon {
+    height: 40px;
+    width: 40px;
+    color: #28a745;
+    border-radius: 50%;
+    border: 1px solid #28a745;
+    padding: 10px;
+}
+
+.social-media .active-icon {
+    color: #28a745;
+}
+
+#instaIcon:hover {
+    background-color: #28a745;
+    Color: white;
+}
+
+#GoogleIcon:hover {
+    background-color: #28a745;
+    Color: white;
+}
+
+#FacebookIcon:hover {
+    background-color: #28a745;
+    Color: white;
+}

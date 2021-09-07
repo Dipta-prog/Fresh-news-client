@@ -1,0 +1,29 @@
+.info-card {
+    padding: 0 5px;
+}
+
+.info-primary {
+    background-color: #28a745;
+}
+
+.info-dark {
+    background-color: rgb(203, 206, 30);
+}
+
+.info-container {
+    height: 100px;
+    padding: 30px;
+}
+
+.info-icon {
+    font-size: 3em;
+    color: #28a745;
+}
+
+.item {
+    background-color: rgba(68, 68, 68, 0.356);
+}
+
+.item:hover {
+    background-color: gray;
+}

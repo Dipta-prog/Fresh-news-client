@@ -1,0 +1,14 @@
+.testimonials .container{
+    background-image: url(https://t3.ftcdn.net/jpg/02/28/29/12/240_F_228291267_os5HEL8EApenUIuQFpBmHZfT79HXh1wM.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 150px;
+}
+.testimonials .card{
+    border-color: transparent;
+}
+
+.testimonials .card .card-footer{
+    background: transparent;
+    border: 0;
+}
