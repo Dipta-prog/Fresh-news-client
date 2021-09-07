@@ -5,19 +5,20 @@ import {
 import './Navbar.css';
 import { useContext } from 'react';
 import { UserContext } from '../../../App';
-
+const categories = ["All", "Local", "International", "Business", "Sports", "Lifestyle", "Spot-Light", "Opinion", "Gear-up", "Supplement", "Cerita"]
 
 const Navbar = () => {
     // const [loggedInUser] = useContext(UserContext);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-    const handleChange = (e)=>{
+
+    const handleChange = (e) => {
         // console.log(document.getElementById(id).value);
-        console.log("clicked",e.target.innerHTML);
-        if (e.target.innerHTML==="All News") {
-            setLoggedInUser({...loggedInUser ,category: 'All'})
+        console.log("clicked", e.target.innerHTML);
+        if (e.target.innerHTML === "All News") {
+            setLoggedInUser({ ...loggedInUser, category: 'All' })
         }
-        else setLoggedInUser({...loggedInUser ,category: e.target.innerHTML})
+        else setLoggedInUser({ ...loggedInUser, category: e.target.innerHTML })
         // setCategory(e.target.value)
         // setLoggedInUser({...loggedInUser ,category: e.target.value})
     }
@@ -38,29 +39,19 @@ const Navbar = () => {
                             <Link style={{ fontWeight: '600' }} className="nav-link text-primary" to='/dashboard'>Dashboard</Link>
                         </li>
                         <li className="nav-item active mx-3">
-                            <Link style={{ fontWeight: '600' }} className="nav-link text-primary" to='/orders'>Contact Us</Link>
+                            <Link style={{ fontWeight: '600' }} className="nav-link text-primary" to='/contact-us'>Contact Us</Link>
                         </li>
                         <li className="nav-item active mx-3">
-                            <Link style={{ fontWeight: '600' }} className="nav-link text-primary" to='/services' >All News</Link>
+                            <Link style={{ fontWeight: '600' }} className="nav-link text-primary" to='/all-news' >All News</Link>
                         </li>
                         <li class="nav-item dropdown mx-3">
                             <Link style={{ fontWeight: '600' }} class="nav-link dropdown-toggle text-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Category
                             </Link>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <Link onClick={handleChange} class="dropdown-item">All News</Link>
-                                <Link onClick={handleChange} class="dropdown-item">Local</Link>
-                                <Link onClick={handleChange} class="dropdown-item">International</Link>
-                                <Link onClick={handleChange} class="dropdown-item">Business</Link>
-                                <Link onClick={handleChange} class="dropdown-item">Sports</Link>
-                                <Link onClick={handleChange} class="dropdown-item">Life Style</Link>
-                                <Link onClick={handleChange} class="dropdown-item">Spot-Light</Link>
-                                <Link onClick={handleChange} class="dropdown-item">Opinion</Link>
-                                <Link onClick={handleChange} class="dropdown-item">Gear up</Link>
-                                <Link onClick={handleChange} class="dropdown-item">Suppliment</Link>
-                                <Link onClick={handleChange} class="dropdown-item">Cerita</Link>
-                                {/* <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a> */}
+                                {
+                                    categories.map(category => <Link onClick={handleChange} class="dropdown-item">{category}</Link>)
+                                }
                             </div>
                         </li>
                         <li className="nav-item active mx-3">

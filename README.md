@@ -1,7 +1,8 @@
-Website Name: PRO REPAIR
-Client side code: https://github.com/Dipta-prog/pro-repair-client
-Server side code: https://github.com/Dipta-prog/pro-repair-server
-Website: https://pro-repair-service.web.app
+Website Name: Fresh News
+Live Site: https://fresh-news-9a15a.web.app/
+Client: https://Dipta-prog/Fresh-news-client (github.com)
+Server: https://Dipta-prog/Fresh-news-server (github.com)
+
 
 Features:
 1. Private route

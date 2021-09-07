@@ -24,7 +24,7 @@ const NewsDetails = () => {
     // console.log("useparams _id: ", _id)
 
     useEffect(() => {
-        fetch(`http://localhost:5092/view-more/${_id}`)
+        fetch(`https://salty-basin-28502.herokuapp.com/view-more/${_id}`)
             .then(res => res.json())
             .then(data => setNewsDetails(data))
         setLoadingSpinner(false);

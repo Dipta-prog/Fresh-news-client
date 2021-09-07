@@ -20,7 +20,7 @@ const MakeAdmin = () => {
         const tempInfo = { ...newAdmin };
         console.log(tempInfo);
 
-        const url = 'http://localhost:5092/addAdmins';
+        const url = 'https://salty-basin-28502.herokuapp.com/addAdmins';
         fetch(url, {
             method: 'POST',
             headers: {

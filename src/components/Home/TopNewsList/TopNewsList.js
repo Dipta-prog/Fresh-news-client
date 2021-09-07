@@ -12,7 +12,7 @@ import TopNews from '../TopNews/TopNews';
 const TopNewsList = () => {
     const [topNewsList, setTopNewsList] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5092/topNewsList')
+        fetch('https://salty-basin-28502.herokuapp.com/topNewsList')
             .then(res => res.json())
             .then(data => setTopNewsList(data))
     }, [])

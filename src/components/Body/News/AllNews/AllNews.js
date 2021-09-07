@@ -9,10 +9,11 @@ const AllNews = () => {
     const [allNews, setAllNews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5092/newsList')
+        fetch('https://salty-basin-28502.herokuapp.com/newsList')
             .then(res => res.json())
             .then(data => setAllNews(data))
     }, [])
+
     return (
         <div className="container-fluid">
             <Navbar/>

@@ -100,7 +100,7 @@ const Admin = () => {
 
 
         if (fileSelected) {
-            const url = 'http://localhost:5092/addNews';
+            const url = 'https://salty-basin-28502.herokuapp.com/addNews';
             fetch(url, {
                 method: 'POST',
                 headers: {

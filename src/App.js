@@ -17,6 +17,8 @@ import DashBoard from './components/DashBoard/DashBoard';
 import NewsDetails from './components/NewsDetails/NewsDetails';
 import { useEffect } from 'react';
 import AllNews from './components/Body/News/AllNews/AllNews';
+import ContactUS from './components/ContactUs/ContactUS';
+import CategoryNews from './components/CategoryNews/CategoryNews';
 export const UserContext = createContext();
 
 function App() {
@@ -54,10 +56,16 @@ useEffect(() => {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/services">
+          <Route path="/all-news">
             <AllNews/>
           </Route>
           {/*  */}
+          <Route path="/contact-us">
+            <ContactUS/>
+          </Route>
+          <Route path="/category">
+            <CategoryNews/>
+          </Route>
 
           {!requireLogin && <Route path="/view-more/:_id">
             <NewsDetails/>

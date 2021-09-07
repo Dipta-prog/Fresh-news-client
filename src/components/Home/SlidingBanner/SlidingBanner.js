@@ -8,10 +8,10 @@ const SlidingBanner = () => {
     const [highlights, setHighlights] = useState([])
     useEffect(() => {
         // original
-        // fetch('https://arcane-savannah-57391.herokuapp.com/products')
-        //     .then(res => res.json())
-        //     .then(data => setNewsList(data))
-        setHighlights(fakeNews)
+        fetch('https://salty-basin-28502.herokuapp.com/newsHighlight')
+            .then(res => res.json())
+            .then(data => setHighlights(data))
+        // setHighlights(fakeNews)
     }, [])
 
     return (
@@ -38,24 +38,7 @@ const SlidingBanner = () => {
                             )
                         })
                     }
-                    {/* <div className="carousel-item active">
-                        <img src="https://www.thesundaily.my/binrepository/648x432/0c0/0d0/none/11808/KJFE/test-kit1_1880007_20210906164736.jpg" className="d-block w-100" alt="..." />
-                        <div className="carousel-caption d-none d-md-block">
-                            <h3>First slide label</h3>
-                        </div>
-                    </div> */}
-                    {/* <div className="carousel-item">
-                        <img src="https://www.thesundaily.my/binrepository/648x432/0c0/0d0/none/11808/KJFE/test-kit1_1880007_20210906164736.jpg" className="d-block w-100" alt="..." />
-                        <div className="carousel-caption d-none d-md-block">
-                            <h3>Second slide label</h3>
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <img src="https://www.thesundaily.my/binrepository/648x432/0c0/0d0/none/11808/KJFE/test-kit1_1880007_20210906164736.jpg" className="d-block w-100" alt="..." />
-                        <div className="carousel-caption d-none d-md-block">
-                            <h3>Third slide label</h3>
-                        </div>
-                    </div> */}
+                   
                 </div>
                 <a className="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -8,13 +8,13 @@ import { UserContext } from '../../../../App';
 const NewsCard = (props) => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const history = useHistory();
-    console.log("From news card", props)
+    // console.log("From news card", props)
     const { _id, img, title, description, author, category } = props.news
 
     const handleRouteChange=(_id)=>{
         console.log("route change called", _id)
 
-            fetch(`http://localhost:5092/view-more/${_id}`)
+            fetch(`https://salty-basin-28502.herokuapp.com/view-more/${_id}`)
                 .then(res => res.json())
                 .then(data => {
                     setLoggedInUser({...loggedInUser,category:data.category})

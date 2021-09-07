@@ -12,48 +12,32 @@ export const fakeNews = [
 
 const News = () => {
     const [newsList, setNewsList] = useState([])
-    const [category, setCategory] = useState("All")
+    // const [category, setCategory] = useState("All")
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
         // original
-        console.log("category use effect called -----------", category)
-        // if (loggedInUser.category === 'All' || loggedInUser.category === undefined) {
-        //     fetch('http://localhost:5092/newsList')
-        //         .then(res => res.json())
-        //         .then(data => setNewsList(data))
-        // }
-        // else {
-        //     setNewsList([])
-        //     fetch(`http://localhost:5092/newsList/${loggedInUser.category}`)
-        //         .then(res => res.json())
-        //         .then(data => setNewsList([data]))
-        // }
+        console.log("category use effect called -----------", loggedInUser.category)
 
+            fetch(`https://salty-basin-28502.herokuapp.com/newsList/${loggedInUser.category}`)
+                .then(res => res.json())
+                .then(data => setNewsList(data))
 
-        setNewsList([])
-        fetch(`http://localhost:5092/newsList/${loggedInUser.category}`)
-            .then(res => res.json())
-            .then(data => setNewsList(data))
-
-
-
-        // setNewsList(fakeNews)
-    }, [])
+    }, [loggedInUser.category])
 
     console.log("from server data front end", newsList);
 
     const handleChange = (e) => {
         // console.log(document.getElementById(id).value);
         console.log(e.target.value);
-        setCategory(e.target.value)
+        // setCategory(e.target.value)
         setLoggedInUser({ ...loggedInUser, category: e.target.value })
 
 
-        setNewsList([])
-        fetch(`http://localhost:5092/newsList/${e.target.value}`)
-            .then(res => res.json())
-            .then(data => setNewsList([data]))
+        // setNewsList([])
+        // fetch(`https://salty-basin-28502.herokuapp.com/newsList/${e.target.value}`)
+        //     .then(res => res.json())
+        //     .then(data => setNewsList(data))
     }
 
     console.log("This is from context api", loggedInUser.category)
@@ -66,7 +50,7 @@ const News = () => {
                     <span className="mr-1">Category: </span>
                     <span>
                         <select onChange={handleChange}>
-                            <option value="" selected disabled hidden>{loggedInUser.category}</option>
+                            <option selected disabled hidden>{loggedInUser.category}</option>
                             <option value="All">All</option>
                             <option value="International">International</option>
                             <option value="Business">Business</option>

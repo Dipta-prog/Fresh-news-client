@@ -49,14 +49,14 @@ const FooterFN = () => {
                                             <li className="mb-2"><Link onClick={handleChange} className="text-muted">International</Link></li>
                                             <li className="mb-2"><Link onClick={handleChange} className="text-muted">Business</Link></li>
                                             <li className="mb-2"><Link onClick={handleChange} className="text-muted">Sports</Link></li>
-                                            <li className="mb-2"><Link onClick={handleChange} className="text-muted">Life Style</Link></li>
+                                            <li className="mb-2"><Link onClick={handleChange} className="text-muted">Lifestyle</Link></li>
                                         </div>
                                         <div className="seperator"></div>
                                         <div>
                                             <li className="mb-2"><Link onClick={handleChange} className="text-muted">Spot-Light</Link></li>
                                             <li className="mb-2"><Link onClick={handleChange} className="text-muted">Opinion</Link></li>
-                                            <li className="mb-2"><Link onClick={handleChange} className="text-muted">Gear up</Link></li>
-                                            <li className="mb-2"><Link onClick={handleChange} className="text-muted">Suppliment</Link></li>
+                                            <li className="mb-2"><Link onClick={handleChange} className="text-muted">Gear-up</Link></li>
+                                            <li className="mb-2"><Link onClick={handleChange} className="text-muted">Supplement</Link></li>
                                             <li className="mb-2"><Link onClick={handleChange} className="text-muted">Cerita</Link></li>
                                         </div>
                                     </div>
