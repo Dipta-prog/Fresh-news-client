@@ -34,10 +34,7 @@ const Login = () => {
         history.replace(from);
       })
       .catch((error) => {
-        // var errorCode = error.code;
-        // var errorMessage = error.message;
-        // var email = error.email;
-        // var credential = error.credential;
+        console.log(error);
 
       });
   }
@@ -86,6 +83,7 @@ const Login = () => {
           const newUserInfo = { ...loggedInUser };
           newUserInfo.error = '';
           newUserInfo.success = true;
+          newUserInfo.isSignedIn = true;
           setLoggedInUser(newUserInfo);
           updateUserInformation(loggedInUser.name);
           history.replace(from);
@@ -93,6 +91,7 @@ const Login = () => {
         .catch((error) => {
           const newUserInfo = { ...loggedInUser };
           newUserInfo.success = false;
+          newUserInfo.isSignedIn = false;
           newUserInfo.error = error.message;
           setLoggedInUser(newUserInfo);
         });
@@ -102,10 +101,12 @@ const Login = () => {
     if (newUser && loggedInUser.email && loggedInUser.password) {
       firebase.auth().signInWithEmailAndPassword(loggedInUser.email, loggedInUser.password)
         .then((userCredential) => {
+          // console.log("email sign in user credential", userCredential.user.email)
           const newUserInfo = { ...loggedInUser };
           newUserInfo.error = '';
           newUserInfo.success = true;
           newUserInfo.name = userCredential.user.displayName;
+          newUserInfo.email = userCredential.user.email;
           newUserInfo.isSignedIn = true;
           console.log('sign in with email & pass', userCredential.user.displayName);
           setLoggedInUser(newUserInfo);
@@ -136,7 +137,7 @@ const Login = () => {
     <div>
       <Navbar></Navbar>
       {/* sign in form */}
-      {newUser && <div className="card col-md-3 container">
+      {newUser && <div className="card col-md-3 container mt-3">
         <form onSubmit={handleEmailSignIn}>
           <h3>Sign In</h3>
 
@@ -163,16 +164,6 @@ const Login = () => {
           </p>
         </form>
 
-        {/* sign in with facebook */}
-        <div className="pb-2">
-          <div className=" d-flex align-items-center">
-            <button type="submit" onClick={handleGoogleSignIn} className="btn btn-block" style={{ border: '1px solid black', borderRadius: '25px' }}>
-              <img width="40px" style={{ marginBottom: '3px' }} alt="Facebook sign-in" src="https://logotyp.us/files413/facebook.svg" />
-              Continue with Facebook
-            </button>
-          </div>
-        </div>
-
         {/* sign in with google */}
         <div>
           <div className=" d-flex align-items-center">
@@ -188,7 +179,7 @@ const Login = () => {
       }
 
       {/* sign up form */}
-      {!newUser && <div className="card col-md-3 pb-3 container">
+      {!newUser && <div className="card col-md-3 pb-3 container mt-3">
         <form onSubmit={handleEmailSignIn}>
           <h3 className="text-center">Create an account</h3>
 
@@ -219,19 +210,6 @@ const Login = () => {
           </p>
           <p className="text-center">..................Or..................</p>
         </form>
-
-
-        {/* sign in with facebook */}
-        <div className="pb-2">
-          <div className=" d-flex align-items-center">
-            <button type="submit" onClick={handleGoogleSignIn} className="btn btn-block" style={{ border: '1px solid black', borderRadius: '25px' }}>
-              <img width="40px" style={{ marginBottom: '3px' }} alt="Google sign-in" src="https://logotyp.us/files413/facebook.svg" />
-              Continue with Facebook
-            </button>
-          </div>
-        </div>
-
-
 
         {/* sign in with google */}
         <div>

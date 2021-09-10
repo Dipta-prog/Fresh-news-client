@@ -11,14 +11,27 @@ import TopNews from '../TopNews/TopNews';
 
 const TopNewsList = () => {
     const [topNewsList, setTopNewsList] = useState([])
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
+        setLoading(true)
         fetch('https://salty-basin-28502.herokuapp.com/topNewsList')
             .then(res => res.json())
-            .then(data => setTopNewsList(data))
+            .then(data => {
+                setTopNewsList(data)
+                setLoading(false)
+            })
     }, [])
     return (
         <div>
-            {/* fetch news of each category take first one, make array using those, map it */}
+            {loading && <div>
+                <div className="m-5">
+                    <div className="d-flex justify-content-center text-primary">
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>}
             {
                 topNewsList.map(topNews => <TopNews topNews={topNews}/>)
             }

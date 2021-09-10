@@ -18,9 +18,10 @@ const NewsCard = (props) => {
                 .then(res => res.json())
                 .then(data => {
                     setLoggedInUser({...loggedInUser,category:data.category})
+                    history.push(`/view-more/${_id}`)
                 })
         // to={`/view-more/${_id}`}
-        history.push(`/view-more/${_id}`)
+        // history.push(`/view-more/${_id}`)
     }
     return (
         <div className="pb-2">

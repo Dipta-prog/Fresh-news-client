@@ -16,8 +16,17 @@ const AllNews = () => {
 
     return (
         <div className="container-fluid">
-            <Navbar/>
-             <div className="row">
+            <Navbar />
+            {(allNews.length===0) && <div>
+                <div className="m-5">
+                    <div className="d-flex justify-content-center text-primary">
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>}
+            <div className="row">
                 {
                     allNews.map(news => {
                         return (
@@ -28,7 +37,7 @@ const AllNews = () => {
                     })
                 }
             </div>
-            <FooterFN/>
+            <FooterFN />
         </div>
     );
 };

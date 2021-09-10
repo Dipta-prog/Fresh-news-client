@@ -5,7 +5,7 @@ import {
 import './Navbar.css';
 import { useContext } from 'react';
 import { UserContext } from '../../../App';
-const categories = ["All", "Local", "International", "Business", "Sports", "Lifestyle", "Spot-Light", "Opinion", "Gear-up", "Supplement", "Cerita"]
+export const categories = ["All", "Local", "International", "Business", "Sports", "Lifestyle", "Spot-Light", "Opinion", "Gear-up", "Supplement", "Cerita"]
 
 const Navbar = () => {
     // const [loggedInUser] = useContext(UserContext);
@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar sticky-top navbar-expand-lg navbar-light" style={{backgroundColor: '#dbdbdb'}}>
                 <Link style={{ fontWeight: '800', fontSize: '30px' }} className="navbar-brand" to='/home'>Fresh News</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

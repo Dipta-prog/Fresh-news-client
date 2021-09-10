@@ -3,10 +3,11 @@ import './Admin.css';
 import { useState } from 'react';
 import axios from 'axios';
 import ManageProduct from '../ManageProduct/ManageProduct';
-import Navbar from '../Shared/Navbar/Navbar';
+import Navbar, { categories } from '../Shared/Navbar/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThLarge, faListOl, faPlusSquare, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import FooterFN from '../Shared/FooterFN/FooterFN';
 // import AllOrders from '../AllOrders/AllOrders';
 
 const Admin = () => {
@@ -140,7 +141,8 @@ const Admin = () => {
 
 
     return (
-        <div><Navbar></Navbar>
+        <div>
+            <Navbar></Navbar>
             <div className="container-fluid">
                 {/* side menu */}
                 <div className="row">
@@ -176,15 +178,10 @@ const Admin = () => {
                                                 <h5>Select Category</h5>
                                                 <select required onChange={handleChange}>
                                                     <option value="" selected disabled hidden>{addProductAllData.category ? addProductAllData.category : "Select"}</option>
+                                                    {
+                                                        categories.map(category => <option value={category}>{category}</option>)
+                                                    }
                                                     {/* <option value="All">All</option> */}
-                                                    <option value="International">International</option>
-                                                    <option value="Business">Business</option>
-                                                    <option value="Sports">Sports</option>
-                                                    <option value="Lifestyle">Lifestyle</option>
-                                                    <option value="Opinion">Opinion</option>
-                                                    <option value="Gear-up">Gear-up</option>
-                                                    <option value="Supplement">Supplement</option>
-                                                    <option value="Cerita">Cerita</option>
                                                 </select>
                                             </div>
                                             {/* <div className="mt-3 pl-3 pr-3 pb-3">
@@ -227,6 +224,7 @@ const Admin = () => {
                     </div>
                 </div>
             </div>
+            <FooterFN/>
         </div>
     );
 };

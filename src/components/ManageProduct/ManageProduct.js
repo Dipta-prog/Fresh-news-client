@@ -3,11 +3,14 @@ import editBtn from '../../all_Images/icons/Group 307.png';
 import deleteBtn from '../../all_Images/icons/Group 33150.png';
 
 const ManageProduct = () => {
-    const [products, setProducts] = useState([]);
+    const [allNews, setAllNews] = useState([]);
     useEffect(() => {
         fetch('https://salty-basin-28502.herokuapp.com/newsList')
             .then(res => res.json())
-            .then(data => setProducts(data))
+            .then(data => {
+                console.log(data)
+                setAllNews(data)
+            })
     }, [])
 
     const handleDeleteProduct = (productIndex, id) => {
@@ -26,7 +29,7 @@ const ManageProduct = () => {
     return (
         <div>
             {
-                products.length === 0 && <div className="m-5">
+                allNews.length === 0 && <div className="m-5">
                     <div className="d-flex justify-content-center text-primary">
                         <div className="spinner-border" role="status">
                             <span className="sr-only">Loading...</span>
@@ -37,21 +40,24 @@ const ManageProduct = () => {
             <table className="container">
                 <thead>
                     <tr className="border-bottom">
-                        <th>Product Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        products.map((product, index) => {
+                        allNews.map((news, index) => {
+                            const { _id,img, title, author, category } = news
                             return (
                                 <tr id={index} className="border-bottom">
-                                    <td>{product.name}</td>
-                                    <td>{product.description}</td>
-                                    <td>{product.price}</td>
-                                    <td><span><img className="btnImg" src={editBtn} alt="" /></span> <span onClick={() => handleDeleteProduct(index, product._id)}><img className="btnImg" src={deleteBtn} alt="" /></span></td>
+                                    <td><img src={img} alt="" className="img-fluid" /></td>
+                                    <td>{title}</td>
+                                    <td>{author}</td>
+                                    <td>{category}</td>
+                                    <td><span><img className="btnImg" src={editBtn} alt="" /></span> <span onClick={() => handleDeleteProduct(index,_id)}><img className="btnImg" src={deleteBtn} alt="" /></span></td>
                                 </tr>
                             )
                         })

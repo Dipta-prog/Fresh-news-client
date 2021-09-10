@@ -12,17 +12,18 @@ const DashBoard = () => {
     const [dataVerifyingComplete, setDataVerifyingComplete] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser.email);
+    console.log("From dashboard",loggedInUser.email);
 
 
     useEffect(() => {
-        fetch('https://arcane-savannah-57391.herokuapp.com/isAdmin', {
+        fetch('https://salty-basin-28502.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
         })
             .then(response => response.json())
             .then(data => {
+                console.log("After verify response", data)
                 setIsAdmin(data);
                 setDataVerifyingComplete(true);
             })
@@ -30,7 +31,7 @@ const DashBoard = () => {
 
     console.log('isAdmin', isAdmin);
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
 
     const [buyService, setBuyService] = useState(true);
     const [boughtServices, setBoughtServices] = useState(false);
@@ -115,7 +116,7 @@ const DashBoard = () => {
                     </div>
                  */}
                     <Navbar />
-                    <h1 className="text-center py-5 my-5">User Logged in</h1>
+                    <h1 className="text-center py-5 my-5">Welcome {loggedInUser.name}!</h1>
                     <FooterFN />
                 </div>
                 }
